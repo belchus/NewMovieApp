@@ -1,0 +1,38 @@
+{% extends 'index.html' %} {% block title %} Resultados de la busqueda {%endblock%}
+{% block main_content %}
+<div class="container">
+    <div class="row col-lg-6 col-md-12 mb-3">
+      <h2 class="my-5"> {{title}}</h2>
+      {% if movies %}
+      <ul class="list-group mb-3">
+        {% for movie in movies %}
+       
+            <div class="flex-fil mb-2" >
+              <div class="card" style="width: 18rem; margin-bottom: 60px; ">
+              {% if movie.img%}
+              <img src="{{movie.img.url}}" class="card-img-bottom" alt="..." />
+              {% endif %}
+              <div class="card-body">
+                <p class="my-auto">{{movie.title}} </p>
+                  <b class="gradient"> </b> {{movie.description}}
+                </p>
+              </div>
+              
+        <a class="btn btn-primary my-3 py-1" href="{% url 'review_form' %}">Deja tu MovieReview</a>
+            </div>
+            
+       
+
+      </div>
+
+        {% endfor %}
+      </ul>
+      <br>
+      {% else %}
+      <span style="color: red">Sin resultados para la busqueda</span>
+  
+      {% endif %}
+    </div>
+  </div>
+
+{%endblock%}

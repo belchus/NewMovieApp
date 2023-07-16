@@ -1,0 +1,26 @@
+{% extends 'index.html' %} {% block title %}
+<title>Edit profile</title> {%endblock%} {% block main_content %}
+
+<div style="width: 70%; margin: auto">
+  <h2 class="title3 mb-5">Edit profile</h2>
+
+  <form class="title3" action="" method="POST">
+    {% csrf_token %}
+    <table>
+      {{ perform.as_p }}
+    </table>
+    <input
+      class="btn btn-primary my-3 py-1 me-2"
+      type="submit"
+      value="Save"
+    />
+  </form>
+  <a class="btn btn-primary my-3 py-1" href="{% url 'edit-avatar' %}"
+      >Editar tu MovieAvatar</a
+    >
+    <a class="btn btn-primary my-3 py-1" href="{% url 'logout' %}"
+      >Logout</a
+    >
+</div>
+
+{% endblock %}

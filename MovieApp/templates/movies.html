@@ -1,0 +1,85 @@
+{% extends 'index.html' %} {% block title %} {%endblock%}
+{% block main_content %}
+{% if user.email == 'arenabelu@gmail.com' %}
+<section class="container">
+    <div class="d-flex flex-column align-items-center">
+      <div class="d-flex flex-column align-items-center">
+        <h2 class="title3" style="margin-bottom: 60px;">Agregar una nueva pelicula</h2>
+  
+        {% if add_form.errors %}
+        <span style="color: red"
+          >Lo datos son incorrectos, por favor, intentelo de nuevo</span
+        >
+        {% endif %}
+      
+        <form
+          class="mx-5 px-3"
+          action="{% url 'add_form' %}"
+          method="POST"
+          enctype="multipart/form-data"
+        > 
+        
+          {% csrf_token %}
+  
+          <div
+            class="d-flex justify-content-center align-items-center " style="margin-bottom:100px ;"
+          >
+            <table class="title3">
+              {{ AddMovie.as_table }}
+              <div style="color: black;">
+                {{form.media}} {{field}}
+              </div>
+             
+           
+            </table>
+        
+           
+
+            <button
+              style="max-height: 3rem"
+              type="submit"
+              class="save"
+            >
+              Agregar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+  <section class="allmovies">
+   
+      <div  class="d-flex flex-column align-items-center">
+        <h1 class="title3">Movies</h1>
+      </div>
+        
+            
+            <div class="padre">
+              {% for movie in all_movies %}
+              <div class="hijo" >
+                <div class="card" style="width: 18rem;">
+                  {% if movie.img%}
+               
+                    <img src="{{movie.img.url}}" class="card-img-bottom" alt="..." />
+            
+                 
+                  {% endif %}
+                  <div class="card-body">
+                    <h5 class="card-title text-center">{{movie.title}}</h5>
+                    <p class="card-text">{{movie.description}}</p>
+                    <DIV class="text-center">
+                      <a  class="btn btn-primary "href="{% url 'review_form' %}">Deja tu MovieReview</a>
+                    </DIV>
+                   
+                  </div>
+              </div>
+              </div>
+
+          
+    
+          {% endfor %}
+
+    </div>
+  </section>
+  {% endblock %}
