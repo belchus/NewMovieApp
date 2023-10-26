@@ -1,19 +1,21 @@
 {% extends 'index.html' %} {% block title %}{%endblock%}
 {%block main_content %}
 
-<div class="d-flex flex-column align-items-center">
-  <h1 class="title3">MovieReviews</h1>
-  {% if all_reviews %} {% for review in all_reviews %}
+<div class="d-flex flex-column align-items-center" id="reviewcolumn">
+  <h1 class="title3 align-items-center" >MovieReviews</h1>
+  {% if all_reviews   %} {% for review in all_reviews %}
 
-  <div class="card my-card" style="margin: 3rem 0">
+  <div class="card my-card" style="margin: 3rem 0" id="reviewsd">
     <div class="card-body">
-      <h2 class="card-title">{{review.title}}</h2>
-      <h4 class="card-title">{{review.user}}</h4>
-
-      <p class="card-text">{{review.text}}</p>
-      <p class="card-text">
-        <small class="text-muted">{{review.date}}</small>
+      <h2 class="card-title" style="font-size: 50px;">{{review.movie.title}}</h2>
+      <p class="starability-result" data-rating="{{review.rated}}">
+      <h2 class="card-title"style="margin-top:30px; font-size: 30px;" >{{review.title}}</h2>
+ 
+      <p class="card-text" style="margin-top:60px;">
+        <img src="{{ user.avatar.image.url }}" alt="50x50" id="avatars">
+        <small class="text-muted">{{review.user}}</small>
       </p>
+   
     </div>
     <a href="{% url 'detail_reviews' review.id %}" class="btn btn-post py-1"
     >reply it</a

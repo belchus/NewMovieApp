@@ -19,55 +19,56 @@
 
   {% endif%} 
   <article style="margin-bottom: 3rem col-md-12 col-sm-12">
+    <img src="{{ user.avatar.image.url }}" alt="" id="nuevoav">
+    <p class="text-muted" style="font-size: 12px">{{review.user}}</p>
+    <div class="card my-card" style="margin: 3rem 0" id="reviewsd">
+    <h1 class="title3">{{review.movie.title}}</h1>
+    <p class="starability-result" data-rating="{{review.rated}}">
     <h2>{{review.title}}</h2>
-    
     <p class="mt-3">{{review.text | safe}}</p>
 
-    <h6 class="text-end"> {{review.user}}</h6>
-    <h6 class="text-end"> {{review.date}}</h6>
+ 
+    <p class="text-muted" style="font-size: 12px">{{review.date}}</p>
+    </div>
   </article>
   <section class="col-md-12">
-    <h5 class="mb-3">Replys</h5>
+    <h5 class="title3">Replys</h5>
     {% if all_reply %}
     <ul class="p-0">
       {% for all_reply in all_reply %}
       <li>
-        <article class="mt-3">
-          <span
-            class="gradient rounded px-2"
-            style="font-size: 1.2rem; margin-top: 1rem"
-            >{{all_reply.title}}</span
-          >
-          <span
-          class="gradient rounded px-2"
-          style="font-size: 1.2rem; margin-top: 1rem"
-          >{{all_reply.text}}</span
-        >
-          <span
-            class="gradient rounded px-2"
-            style="font-size: 1.2rem; margin-top: 1rem"
-            >De:{{all_reply.user}}</span
-          >
-          <p class="comment-bg rounded my-1">{{all_reply.all_reply}}</p>
+      <div>
+        <img src="{{user.avatar.image.url}}" alt="" id="avareviw">
+        <p class="text-muted" style="font-size: 12px">{{all_reply.user}}</p>
+      </div>
+        <div class="card my-card" style="margin: 3rem 0" id="reviewsd2">
           {% if user.is_authenticated and req == all_reply.user.username %}
           <a
             href="{% url 'delete-reply' all_reply.id %}"
             class="btn btn-danger py-1 my-1"
-            style="font-size: 0.8rem"
+            style="color: brown; "
             >Delete</a
           >
           {% endif %}
+          
+          <p class="mt-3">{{all_reply.text | safe}}</p>
+ 
+         
+          <p class="comment-bg rounded my-1">{{all_reply.all_reply}}</p>
+         
         </article>
+    
         <p class="text-muted" style="font-size: 12px">{{all_reply.date}}</p>
+      </div>
       </li>
       {% endfor %}
     </ul>
     {% else %}
-    <span class="mb-3">Sin replys aun</span>
+    <span class="mb-3">No replys yet</span>
     {% endif %}
   </section>
   {% if user.is_authenticated %}
-    <form  action="{% url 'detail_reviews' review.id %}" method="POST"> 
+    <form class="title3" action="{% url 'detail_reviews' review.id %}" method="POST"> 
       {% csrf_token %}{% for field in AddReview %} {{field.label}}
       <br />
       {{form.media}} {{field}}
@@ -75,7 +76,7 @@
       <br />
       {%endfor%}
       {{ AddReply.as_table }}
-      <input class="btn btn-primary mb-3 p-2" type="submit" value="Reply" />
+      <input class="btn btn-primary mb-3 p-2" type="submit" value="Reply" style="margin-top: 20px;" />
     </form>
 </div>
 

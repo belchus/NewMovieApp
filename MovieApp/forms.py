@@ -21,6 +21,7 @@ class AddReview(ModelForm):
         model = Review
         fields =   ['title','text']
         widgets ={
+            'rated': forms.NumberInput(attrs={'type': 'number', 'min': '1', 'max': '5'}),        
             'review': forms.Textarea(attrs={'class': 'form-control','placeholder': 'Dejar MovieReview' }),
             
         }
@@ -29,7 +30,7 @@ class AddNewReview(ModelForm):
     class Meta:
         model = Review
         fields = '__all__'
-        exclude = ['user','movie']
+        exclude = ['user','movie','rated']
         widgets ={
             'review': forms.Textarea(attrs={'class': 'form-control','placeholder': 'Dejar MovieReview' }),
             
@@ -40,7 +41,7 @@ class AddNewReview(ModelForm):
 class AddReply(ModelForm):
     class Meta:
         model = Review
-        fields =   '__all__'
+        fields =   ['text']      
         widgets ={
             'review': forms.Textarea(attrs={'class': 'form-control','placeholder': 'Dejar MovieReview' }),
             

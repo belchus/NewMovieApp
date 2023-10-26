@@ -66,10 +66,9 @@
                  
                   {% endif %}
                   <div class="card-body">
-                    <h5 class="card-title text-center">{{movie.title}}</h5>
-                    <p class="card-text">{{movie.description}}</p>
+                    <h5 class="card-title text-center" style="margin-top: 10px;">{{movie.title}}</h5>
                     <DIV class="text-center">
-                      <a  class="btn btn-primary "href="{% url 'review_form' %}">Deja tu MovieReview</a>
+                      <a  class="btn btn-primary "href="{% url 'review_form' movie.pk  %}" style="margin-top: 30px;">Deja tu MovieReview</a>
                     </DIV>
                    
                   </div>

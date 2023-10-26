@@ -68,11 +68,11 @@ General styles
   }
   .gradient-border {
     animation: gradient 5s linear infinite;
-    background: linear-gradient(100deg, var(--violet) 25%, var(--turquoise) 50%, var(--violet) 75%);
+    background: linear-gradient(100deg, var(--pink) 15%, var(--turquoise) 50%, var(--pink) 75%);
     background-repeat: repeat;
     border-radius: 1rem;
     padding: 1rem;
-    margin: 1rem;
+    margin: 5rem;
   }
   
   @keyframes gradient {
@@ -103,16 +103,65 @@ General styles
  margin-top: 100px;
  background-color: rgba(243, 226, 233, 0.021);
  border-color: linear-gradient(100deg, var(--violet) 25%, var(--turquoise) 50%, var(--violet) 75%);
- height: 450px;
- width: 550px;
-
- border-radius: 20px;
+ height: 350px;
+ width: 350px;
+color: #088085;
  
- 
-
- 
-
 }
+
+.card3{
+
+  margin: 60px;
+  margin-top: 100px;
+  background-color: rgba(243, 226, 233, 0.021);
+  border-color: linear-gradient(100deg, var(--violet) 25%, var(--turquoise) 50%, var(--violet) 75%);
+  height: 350px;
+  width: 600px;
+ color: #088085;
+  
+ }
+
+ #colores{
+  background-color: transparent;
+  height: 27vh;
+ }
+ .delete{
+  color: red;
+  width: 25px;
+  height: 25px;
+  font-size: 15px;
+  justify-content: right;
+  background-color: transparent;
+  border-color: linear-gradient(100deg, var(--violet) 25%, var(--turquoise) 50%, var(--violet) 75%);
+  text-align: center;
+  border-radius: 20px;
+ }
+#reviewsd{
+  width: 60vw;
+}
+#reviewsd2{
+  width: 60vw;
+  height: 25vh;
+}
+#nuevoav{
+  width: 5vw;
+  height: 5vh;
+}
+#avatars{
+  width: 40px;
+  height: 40px;
+}
+li{
+  list-style: none;
+}
+#avareviw{
+  width: 5vw;
+  height: 5vh;
+}
+ .img-bottom2{
+  width: 100%; /* Establece un ancho fijo para las imágenes */
+
+ }
  .card img{
   width: 358px; /* Establece un ancho fijo para las imágenes */
   height: 180px; /* Establece una altura fija para las imágenes */
@@ -153,4 +202,29 @@ table{
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
   animation: gradient 5s linear infinite;
+}
+
+.padre2{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#id_title{
+  width:25vw;
+  height: 5vh;
+}
+
+#id_text{
+  width:65vw;
+  height: 15vh;
+}
+
+#id_score{
+  width: 3vw;
+}
+
+#miform{
+  border-color: #088085;
 }
